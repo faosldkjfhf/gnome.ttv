@@ -51,7 +51,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DealDamage(damageAmount);
+            GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
             Debug.Log("Player hit!");
         }
     }

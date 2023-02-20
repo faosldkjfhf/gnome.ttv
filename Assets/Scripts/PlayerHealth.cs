@@ -6,11 +6,13 @@ public class PlayerHealth : MonoBehaviour
 {
     public Slider healthSlider;
     int startingHealth = 100;
+    Transform checkpoint;
     int currentHealth;
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        checkpoint = GameObject.FindGameObjectWithTag("Checkpoint").transform;
         currentHealth = startingHealth;
         healthSlider.value = currentHealth;
     }
@@ -18,16 +20,16 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TakeDamage(int damage)
     {
-        if(currentHealth > 0)
+        if (currentHealth > 0)
         {
             currentHealth -= damage;
         }
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             PlayerDies();
         }
@@ -36,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
     void PlayerDies()
     {
         Debug.Log("Player died");
-        // restart the from the last checkpoint
+        GameObject.FindObjectOfType<LevelManager>().LevelLost();
+        // should restart the from the last checkpoint
     }
 }
