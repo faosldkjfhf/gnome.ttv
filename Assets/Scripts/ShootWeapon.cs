@@ -7,7 +7,7 @@ public class ShootWeapon : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public float projectileSpeed = 100;
-    public AudioClip shootSFX;
+    //public AudioClip shootSFX;
 
     public Image CrosshairImage;
 
@@ -39,7 +39,7 @@ public class ShootWeapon : MonoBehaviour
                 GameObject.FindGameObjectWithTag("ProjectileParent").transform
             );
 
-            AudioSource.PlayClipAtPoint(shootSFX, transform.position);
+            //AudioSource.PlayClipAtPoint(shootSFX, transform.position);
         }
     }
 }
