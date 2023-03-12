@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     public float airControl = 10f;
     Vector3 moveDirection;
     CharacterController controller;
+    float finalSpeed;
 
     // gets the character controller
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        finalSpeed = playerSpeed; 
     }
 
     // handles movement 
@@ -22,7 +24,15 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 controlInput = playerSpeed *
+        // if the player is pressing the sprint key (left shift), moves faster
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            finalSpeed = playerSpeed * 2;
+        } 
+        else {
+            finalSpeed = playerSpeed;
+        }
+
+        Vector3 controlInput = finalSpeed *
             (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
 
         if (controller.isGrounded)
