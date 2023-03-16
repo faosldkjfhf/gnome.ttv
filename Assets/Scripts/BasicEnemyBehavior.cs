@@ -33,7 +33,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     void Update()
     {
         var distance = Vector3.Distance(transform.position, player.position);
-        Debug.Log(distance);
+        // Debug.Log(distance);
         var step = speed * Time.deltaTime;
         if (distance <= maxDistance && distance >= minDistance)
         {
