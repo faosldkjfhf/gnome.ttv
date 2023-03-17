@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     {
         if (!isGameOver) {
             SetScoreText();
-            Debug.Log(enemyHasSpawned);
+           // Debug.Log(enemyHasSpawned);
         }
         
     }
