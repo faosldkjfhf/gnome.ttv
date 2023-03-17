@@ -1,4 +1,5 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 // https://www.youtube.com/watch?v=THnivyG0Mvo
@@ -13,7 +14,7 @@ public class Weapon : MonoBehaviour
     private float nextTimeToFire = 0f;
 
     void Start() {
-        fpsCam = FindGameObjectWithTag("MainCamera");
+        fpsCam = Camera.main;
     }
 
     // Update is called once per frame
