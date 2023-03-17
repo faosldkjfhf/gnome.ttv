@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 804492953752058588}
   m_Layer: 0
   m_Name: RandomWeapon
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 1416682106437879307}
   - component: {fileID: 1416682106437879308}
   - component: {fileID: 8562779315759287599}
+  - component: {fileID: 704205739}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -474,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336e0ac1967aa164d82fad7a1bacfa83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 50
+  mouseSensitivity: 70
 --- !u!114 &8562779315759287599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +490,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2936433265887493717, guid: 182e6aca6727e954d9542235f1ba531b, type: 3}
   projectileSpeed: 100
+  shootSFX: {fileID: 8300000, guid: e9e8e8c47dc7eaa46964a5f4b5379460, type: 3}
   CrosshairImage: {fileID: 0}
+--- !u!114 &704205739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416682106437879304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c334d3904cd06304b9521b350f7c1f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
 --- !u!1 &1416682106774145226
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +616,7 @@ GameObject:
   - component: {fileID: 1416682106823299062}
   - component: {fileID: 1416682106823299063}
   - component: {fileID: 1416682106823299060}
+  - component: {fileID: 1777891263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -717,11 +733,24 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 60
+  m_SlopeLimit: 90
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1777891263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416682106823299058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7899d5b7330094da9530ef17f86e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
 --- !u!1 &1416682106824396949
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +777,7 @@ Transform:
   m_GameObject: {fileID: 1416682106824396949}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.6, y: -0.35, z: 0.95}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.8, y: 1, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 804492953752058588}
@@ -770,8 +799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedSlot: 0
-  weapon1Prefab: {fileID: 0}
-  weapon2Prefab: {fileID: 0}
+  weapon1Prefab: {fileID: 393407123348296350}
+  weapon2Prefab: {fileID: 2297262459619126505}
 --- !u!1 &2297262459619126505
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,9 +810,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2364488389689325828}
+  - component: {fileID: 1101747066}
+  - component: {fileID: 1101747068}
   m_Layer: 0
   m_Name: BigStick
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -804,6 +835,40 @@ Transform:
   m_Father: {fileID: 1416682106824396948}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1101747066
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297262459619126505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1101747068
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297262459619126505}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6da919d13845804439963802156ec317, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8918824119718102328
 GameObject:
   m_ObjectHideFlags: 0

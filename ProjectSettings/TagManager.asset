@@ -7,6 +7,9 @@ TagManager:
   - Checkpoint
   - Enemy
   - ProjectileParent
+  - Melee
+  - Shootable
+  - UIPanel
   layers:
   - Default
   - TransparentFX

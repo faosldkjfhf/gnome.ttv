@@ -22,6 +22,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
         // if target isn't assigned
         if (player == null)
         {
@@ -44,7 +45,7 @@ public class BasicEnemyBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && PlayerHealth.currentHealth > 0)
         {
             GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
             Debug.Log("Player hit!");
