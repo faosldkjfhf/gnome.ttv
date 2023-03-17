@@ -25,6 +25,8 @@ public class LevelManager : MonoBehaviour
     // how many enemies have spawned by the spawners 
     int enemyHasSpawned = 0; 
 
+    int enemiesKilled = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,9 @@ public class LevelManager : MonoBehaviour
         if (!isGameOver) {
             SetScoreText();
            // Debug.Log(enemyHasSpawned);
+           if (enemiesKilled >= enemiesToSpawn) {
+            LevelBeat();
+            }
         }
         
     }
@@ -48,6 +53,12 @@ public class LevelManager : MonoBehaviour
     // tracks how many enemies have spawned 
     public void TrackSpawn() {
         enemyHasSpawned += 1;
+    }
+
+    // tracks how many enemies have been killed 
+    public void TrackKill() {
+        enemiesKilled += 1;
+        score = enemiesKilled;
     }
 
     // spawns enemies if more should be spawned 

@@ -23,6 +23,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     void Start()
     {
         GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
+        transform.Rotate(new Vector3(-90, 270, 90));
         // if target isn't assigned
         if (player == null)
         {
@@ -36,9 +37,11 @@ public class BasicEnemyBehavior : MonoBehaviour
         var distance = Vector3.Distance(transform.position, player.position);
         // Debug.Log(distance);
         var step = speed * Time.deltaTime;
+        transform.LookAt(player);
+        transform.Rotate(new Vector3(-90, 270, 90));
         if (distance <= maxDistance && distance >= minDistance)
         {
-            transform.LookAt(player);
+            
             transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
     }
