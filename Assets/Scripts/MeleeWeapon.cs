@@ -38,8 +38,6 @@ public class MeleeWeapon : MonoBehaviour
         
         elapsedTime += Time.deltaTime;
         
-        Debug.Log(anim.GetBool("isHitting"));
-        
     }
 
     private void OnCollisionEnter(Collision collision)
