@@ -5,9 +5,12 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public Slider healthSlider;
+
+    public static int currentHealth;
+    
     int startingHealth = 100;
     Transform checkpoint;
-    int currentHealth;
+    
 
     // Start is called before the first frame update
     void Start()
