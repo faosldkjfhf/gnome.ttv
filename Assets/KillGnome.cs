@@ -20,8 +20,8 @@ public class KillGnome : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
-            gnomeAnimator.SetTrigger("isDead");
+            // Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
+            // gnomeAnimator.SetTrigger("isDead");
             Destroy(collision.gameObject, 0.5f);
         }
     }

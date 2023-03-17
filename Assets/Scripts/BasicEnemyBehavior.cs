@@ -23,6 +23,10 @@ public class BasicEnemyBehavior : MonoBehaviour
     void Start()
     {
         GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
+        transform.Rotate(new Vector3(-90, 270, 0));
+        // Transform gnomeModel = GameObject.FindGameObjectWithTag("GnomeModel").transform; 
+        // gnomeModel.Rotate(new Vector3(0, 270, 0), Space.Self);
+        // transform.Rotate(new Vector3(-90, 270, 0));
         // if target isn't assigned
         if (player == null)
         {
@@ -33,12 +37,14 @@ public class BasicEnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.LookAt(player);
+
+        transform.Rotate(new Vector3(-90, 270, 90));
         var distance = Vector3.Distance(transform.position, player.position);
-        // Debug.Log(distance);
         var step = speed * Time.deltaTime;
+        
         if (distance <= maxDistance && distance >= minDistance)
         {
-            transform.LookAt(player);
             transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
     }
