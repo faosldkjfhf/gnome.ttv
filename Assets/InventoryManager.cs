@@ -12,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject weapon1Prefab;
     public GameObject weapon2Prefab;
 
-    GameObject currentWeaponPrefab; 
+    public static GameObject currentWeaponPrefab; 
 
     // tracks keycodes for indexing 
     private KeyCode[] keyCodes = {
@@ -76,6 +76,8 @@ public class InventoryManager : MonoBehaviour
         foreach (Transform weapon in transform) {
             if (i == selectedSlot) {
                 weapon.gameObject.SetActive(true);
+                currentWeaponPrefab = weapon.gameObject;
+                // Debug.Log(currentWeaponPrefab.tag);
             }
             else {
                 weapon.gameObject.SetActive(false);

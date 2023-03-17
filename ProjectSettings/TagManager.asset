@@ -7,6 +7,8 @@ TagManager:
   - Checkpoint
   - Enemy
   - ProjectileParent
+  - Melee
+  - Shootable
   layers:
   - Default
   - TransparentFX

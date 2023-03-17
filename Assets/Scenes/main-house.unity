@@ -130,25 +130,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1416682106437879308, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: mouseSensitivity
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416682106437879309, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.2
-      objectReference: {fileID: 0}
+    - target: {fileID: 1777891263, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 201792915}
     - target: {fileID: 1416682106823299051, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416682106823299051, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416682106823299051, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1416682106823299051, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,22 +181,6 @@ PrefabInstance:
     - target: {fileID: 1416682106823299058, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416682106823299060, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_SlopeLimit
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416682106824396948, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416682106824396948, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416682106824396948, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8562779315759287599, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
       propertyPath: CrosshairImage
@@ -63560,24 +63532,6 @@ Transform:
   m_Father: {fileID: 976730625}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1777891256 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1416682106823299058, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-  m_PrefabInstance: {fileID: 14676894}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1777891263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777891256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a7899d5b7330094da9530ef17f86e69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 201792915}
 --- !u!1 &1781052709
 GameObject:
   m_ObjectHideFlags: 0
