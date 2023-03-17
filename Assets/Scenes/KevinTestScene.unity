@@ -202,7 +202,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-29766
+  m_Name: pb_Mesh-81006
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -360,24 +360,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &704205733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1416682106437879304, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-  m_PrefabInstance: {fileID: 1101747064}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &704205739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704205733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c334d3904cd06304b9521b350f7c1f4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
 --- !u!1001 &1101747064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,10 +367,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1157197126230524233, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: weapon2Prefab
-      value: 
-      objectReference: {fileID: 1101747065}
     - target: {fileID: 1416682106823299051, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -437,17 +415,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2297262459619126505, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
---- !u!1 &1101747065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2297262459619126505, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
-  m_PrefabInstance: {fileID: 1101747064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1542041880
 GameObject:
   m_ObjectHideFlags: 0

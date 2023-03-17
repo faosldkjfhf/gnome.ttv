@@ -7,7 +7,7 @@ public class ShootWeapon : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public float projectileSpeed = 100;
-    //public AudioClip shootSFX;
+    public AudioClip shootSFX;
 
     public Image CrosshairImage;
 
@@ -32,6 +32,9 @@ public class ShootWeapon : MonoBehaviour
                 ) as GameObject;
 
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+            AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position);
+
 
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
 

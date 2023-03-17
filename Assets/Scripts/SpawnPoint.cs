@@ -14,15 +14,17 @@ public class SpawnPoint : MonoBehaviour
     }
 
     void SpawnEnemies() {
-        Vector3 enemyPosition;
+        if (GameObject.FindObjectOfType<LevelManager>().ShouldSpawnMore()) {
+            Vector3 enemyPosition;
 
-        enemyPosition.x = gameObject.transform.position.x;
-        enemyPosition.y = gameObject.transform.position.y;
-        enemyPosition.z = gameObject.transform.position.z;
+            enemyPosition.x = gameObject.transform.position.x;
+            enemyPosition.y = gameObject.transform.position.y;
+            enemyPosition.z = gameObject.transform.position.z;
 
-        GameObject spawnedEnemy = Instantiate(enemyPrefab, enemyPosition, transform.rotation)
-            as GameObject;
-        
-        spawnedEnemy.transform.parent = gameObject.transform;
+            GameObject spawnedEnemy = Instantiate(enemyPrefab, enemyPosition, transform.rotation)
+                as GameObject;
+            
+            spawnedEnemy.transform.parent = gameObject.transform;
+        }
     }
 }

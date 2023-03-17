@@ -10,6 +10,9 @@ public class LevelManager : MonoBehaviour
     public Text scoreText;
     public GameObject uiPanel;
 
+    [Tooltip("How many enemies to kill to pass level")]
+    public int enemiesToSpawn = 10;
+
     public AudioClip gameOverSFX;
     public AudioClip gameWonSFX;
 
@@ -18,6 +21,10 @@ public class LevelManager : MonoBehaviour
     public static bool isGameOver = false;
 
     public string nextLevel;
+
+    // how many enemies have spawned by the spawners 
+    int enemyHasSpawned = 0; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +40,19 @@ public class LevelManager : MonoBehaviour
     {
         if (!isGameOver) {
             SetScoreText();
+            Debug.Log(enemyHasSpawned);
         }
+        
+    }
+
+    // tracks how many enemies have spawned 
+    public void TrackSpawn() {
+        enemyHasSpawned += 1;
+    }
+
+    // spawns enemies if more should be spawned 
+    public bool ShouldSpawnMore() {
+        return enemyHasSpawned < enemiesToSpawn;
     }
 
     void SetScoreText() {

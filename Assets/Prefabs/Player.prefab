@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 1416682106437879307}
   - component: {fileID: 1416682106437879308}
   - component: {fileID: 8562779315759287599}
+  - component: {fileID: 704205739}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -489,7 +490,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2936433265887493717, guid: 182e6aca6727e954d9542235f1ba531b, type: 3}
   projectileSpeed: 100
+  shootSFX: {fileID: 0}
   CrosshairImage: {fileID: 0}
+--- !u!114 &704205739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416682106437879304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c334d3904cd06304b9521b350f7c1f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
 --- !u!1 &1416682106774145226
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedSlot: 0
   weapon1Prefab: {fileID: 393407123348296350}
-  weapon2Prefab: {fileID: 0}
+  weapon2Prefab: {fileID: 2297262459619126505}
 --- !u!1 &2297262459619126505
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2364488389689325828
 Transform:
   m_ObjectHideFlags: 0

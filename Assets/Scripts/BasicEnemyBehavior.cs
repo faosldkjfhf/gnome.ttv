@@ -22,6 +22,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
         // if target isn't assigned
         if (player == null)
         {
