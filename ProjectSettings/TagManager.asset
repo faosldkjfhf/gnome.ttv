@@ -10,6 +10,7 @@ TagManager:
   - Melee
   - Shootable
   - UIPanel
+  - WaterBullet
   layers:
   - Default
   - TransparentFX
