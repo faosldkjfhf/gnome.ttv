@@ -42,14 +42,9 @@ public class BasicEnemyBehavior : MonoBehaviour
         }
     }
 
-    public void DealDamage(int damage)
+    private void OnCollisionEnter(Collision collision)
     {
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
             Debug.Log("Player hit!");

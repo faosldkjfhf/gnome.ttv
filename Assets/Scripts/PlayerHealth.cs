@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        checkpoint = GameObject.FindGameObjectWithTag("Checkpoint").transform;
+        // checkpoint = GameObject.FindGameObjectWithTag("Checkpoint").transform;
         currentHealth = startingHealth;
         healthSlider.value = currentHealth;
     }
@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damage;
+            healthSlider.value = currentHealth;
         }
         if (currentHealth <= 0)
         {
