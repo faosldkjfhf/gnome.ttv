@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeWeapon : MonoBehaviour
 {
     public int damageAmount = 10;
+    public float attackRate = 2f;
     Animator anim;
     float elapsedTime = 0f;
 
@@ -14,24 +15,26 @@ public class MeleeWeapon : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && InventoryManager.currentWeaponPrefab.CompareTag("Melee"))
         {
             anim = InventoryManager.currentWeaponPrefab.GetComponent<Animator>();
-            anim.SetBool("isHitting", true);
-            elapsedTime += Time.deltaTime;
-
-
-            if (anim.GetBool("isHitting"))
+            if (elapsedTime >= attackRate)
             {
-                if (elapsedTime < anim.GetCurrentAnimatorStateInfo(0).length)
-                {
-                    elapsedTime += Time.deltaTime;
-                }
-                else
-                {
-                    elapsedTime = 0.0f;
-                    anim.SetBool("isHitting", false);
-                }
+                anim.SetBool("isHitting", true);
+                elapsedTime = 0.0f;
             }
-            Debug.Log(anim.GetBool("isHitting"));
         }
+
+
+        if (anim != null && anim.GetBool("isHitting"))
+        {
+            if (elapsedTime >= anim.GetCurrentAnimatorStateInfo(0).length)
+            {
+                anim.SetBool("isHitting", false);
+            }
+        }
+        
+        elapsedTime += Time.deltaTime;
+        
+        Debug.Log(anim.GetBool("isHitting"));
+        
     }
 
     private void OnCollisionEnter(Collision collision)
