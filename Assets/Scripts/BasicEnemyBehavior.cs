@@ -44,7 +44,7 @@ public class BasicEnemyBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && PlayerHealth.currentHealth > 0)
         {
             GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
             Debug.Log("Player hit!");
