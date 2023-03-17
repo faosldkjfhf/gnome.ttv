@@ -490,7 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2936433265887493717, guid: 182e6aca6727e954d9542235f1ba531b, type: 3}
   projectileSpeed: 100
-  shootSFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: e9e8e8c47dc7eaa46964a5f4b5379460, type: 3}
   CrosshairImage: {fileID: 0}
 --- !u!114 &704205739
 MonoBehaviour:

@@ -16,20 +16,22 @@ public class MeleeWeapon : MonoBehaviour
             anim = InventoryManager.currentWeaponPrefab.GetComponent<Animator>();
             anim.SetBool("isHitting", true);
             elapsedTime += Time.deltaTime;
-        }
 
-        if (anim.GetBool("isHitting")) {
-            if (elapsedTime < anim.GetCurrentAnimatorStateInfo(0).length)
+
+            if (anim.GetBool("isHitting"))
             {
-                elapsedTime += Time.deltaTime;
+                if (elapsedTime < anim.GetCurrentAnimatorStateInfo(0).length)
+                {
+                    elapsedTime += Time.deltaTime;
+                }
+                else
+                {
+                    elapsedTime = 0.0f;
+                    anim.SetBool("isHitting", false);
+                }
             }
-            else
-            {
-                elapsedTime = 0.0f;
-                anim.SetBool("isHitting", false);
-            }
+            Debug.Log(anim.GetBool("isHitting"));
         }
-        Debug.Log(anim.GetBool("isHitting"));
     }
 
     private void OnCollisionEnter(Collision collision)
