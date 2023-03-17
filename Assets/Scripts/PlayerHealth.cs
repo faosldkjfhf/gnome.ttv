@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
+
 public class PlayerHealth : MonoBehaviour
 {
     public Slider healthSlider;
-
-    public static int currentHealth;
-    
     int startingHealth = 100;
     Transform checkpoint;
-    
+    int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void TakeDamage(int damage)
