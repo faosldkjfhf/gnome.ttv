@@ -10,11 +10,7 @@ TagManager:
   - Melee
   - Shootable
   - UIPanel
-<<<<<<< Updated upstream
   - WaterBullet
-=======
-  - GnomeModel
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
