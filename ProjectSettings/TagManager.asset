@@ -11,6 +11,7 @@ TagManager:
   - Shootable
   - UIPanel
   - WaterBullet
+  - WanderPoint
   layers:
   - Default
   - TransparentFX
