@@ -38,7 +38,7 @@ public class NpcAI : MonoBehaviour
         isTalking = false;
         currentDestinationIndex = 0;
         currentState = FSMStates.Walking;
-        // FindNextPoint();
+        FindNextPoint();
     }
 
     // Update is called once per frame
@@ -94,10 +94,14 @@ public class NpcAI : MonoBehaviour
     {
         print("Talking");
 
+        agent.speed = 0;
+
         if (distanceToPlayer > talkingDistance)
         {
             currentState = FSMStates.Walking;
         }
+
+        FaceTarget(player.transform.position);
 
         if (!isTalking)
         {
