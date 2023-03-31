@@ -8,16 +8,15 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9.81f;
     public float airControl = 10f;
 
-    public AudioClip walkingSFX;
+    public AudioSource walkingSFX;
 
-
-    AudioSource audioSource;
     Vector3 moveDirection;
     CharacterController controller;
     float finalSpeed;
 
     void Awake() {
-        audioSource = gameObject.GetComponent<AudioSource> ();
+        walkingSFX = GetComponent<AudioSource>();
+        walkingSFX.volume = 0.5f;
         controller = GetComponent<CharacterController>();
 
     }
@@ -50,6 +49,18 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded)
         {
             moveDirection = controlInput;
+            // if the player is moving, play walkingSFX
+            if (!controlInput.Equals(Vector3.zero)) {
+                // if the player is running, louder footsteps
+                if (finalSpeed == playerSpeed * 2) {
+                    walkingSFX.volume = 1f;
+                } else {
+                    walkingSFX.volume = 0.5f;
+                }
+                walkingSFX.enabled = true;
+            } else {
+                walkingSFX.enabled = false;
+            }
         }
         else
         {
