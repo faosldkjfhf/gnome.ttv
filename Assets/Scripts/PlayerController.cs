@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 2f;
     public float gravity = 9.81f;
     public float airControl = 10f;
+    public float jumpHeight = 3.0f;
 
     public AudioSource walkingSFX;
 
@@ -33,8 +34,6 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-
-
         // if the player is pressing the sprint key (left shift), moves faster
         if (Input.GetKey(KeyCode.LeftShift)) {
             finalSpeed = playerSpeed * 2;
@@ -60,6 +59,10 @@ public class PlayerController : MonoBehaviour
                 walkingSFX.enabled = true;
             } else {
                 walkingSFX.enabled = false;
+            }
+            if (Input.GetKey(KeyCode.Space))
+            {
+                moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
             }
         }
         else
