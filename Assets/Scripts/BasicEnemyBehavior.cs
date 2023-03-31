@@ -59,4 +59,10 @@ public class BasicEnemyBehavior : MonoBehaviour
             // Debug.Log("Player hit!");
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, maxDistance);
+    }
 }
