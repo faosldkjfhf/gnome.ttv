@@ -19,16 +19,18 @@ public class BasicEnemyBehavior : MonoBehaviour
     // amount of damage
     public int damageAmount = 10;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
-        // transform.Rotate(new Vector3(-90, 270, 90));
+    void Awake() {
         // if target isn't assigned
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
+        
     }
 
     // Update is called once per frame
@@ -38,7 +40,6 @@ public class BasicEnemyBehavior : MonoBehaviour
         // Debug.Log(distance);
         var step = speed * Time.deltaTime;
         transform.LookAt(player);
-        // transform.Rotate(new Vector3(-90, 270, 90));
         if (distance <= maxDistance && distance >= minDistance)
         {
             
