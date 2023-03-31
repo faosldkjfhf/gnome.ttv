@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336e0ac1967aa164d82fad7a1bacfa83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 70
+  mouseSensitivity: 120
 --- !u!114 &8562779315759287599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08dfcaa341236224e88bc5fe78ca3e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  playerSpeed: 15
   gravity: 9.81
   airControl: 10
 --- !u!143 &1416682106823299060
