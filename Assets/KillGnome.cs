@@ -20,10 +20,17 @@ public class KillGnome : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
-            // gnomeAnimator.SetTrigger("isDead");
-            GameObject.FindObjectOfType<LevelManager>().TrackKill();
-            Destroy(collision.gameObject, 0.5f);
+            BasicEnemyBehavior enemyProperties = collision.gameObject.GetComponent<BasicEnemyBehavior>();
+            if (!enemyProperties.isDead) {
+                // Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
+                // gnomeAnimator.SetTrigger("isDead");
+                enemyProperties.isDead = true;
+                GameObject.FindObjectOfType<LevelManager>().TrackKill();
+                Destroy(collision.gameObject, 0.5f);
+                Destroy(gameObject);
+            }
+            
+            
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BasicEnemyBehavior : MonoBehaviour
 {
+    public bool isDead;
+
     // the player
     public Transform player;
 
@@ -19,12 +21,14 @@ public class BasicEnemyBehavior : MonoBehaviour
     // amount of damage
     public int damageAmount = 10;
 
+
     void Awake() {
         // if target isn't assigned
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
+        isDead = false;
     }
     // Start is called before the first frame update
     void Start()
@@ -52,7 +56,7 @@ public class BasicEnemyBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && PlayerHealth.currentHealth > 0)
         {
             GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
-            Debug.Log("Player hit!");
+            // Debug.Log("Player hit!");
         }
     }
 }
