@@ -7,6 +7,7 @@ public class MeleeWeapon : MonoBehaviour
     public int damageAmount = 10;
     public float attackRate = 2f;
     public AudioClip swingSFX;
+    public AudioClip gnomeDeadSFX;
 
     Animator anim;
     float elapsedTime = 0f;
@@ -45,6 +46,15 @@ public class MeleeWeapon : MonoBehaviour
         if (anim.GetBool("isHitting") && collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Enemy hit by melee!");
+            BasicEnemyBehavior enemyProperties = collision.gameObject.GetComponent<BasicEnemyBehavior>();
+            if (!enemyProperties.isDead) {
+                // Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
+                // gnomeAnimator.SetTrigger("isDead");
+                enemyProperties.isDead = true;
+                GameObject.FindObjectOfType<LevelManager>().TrackKill();
+                AudioSource.PlayClipAtPoint(gnomeDeadSFX, collision.gameObject.transform.position, 10f);
+                Destroy(collision.gameObject, 0.2f);
+            }
         }
     }
 }

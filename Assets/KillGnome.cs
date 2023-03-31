@@ -32,8 +32,6 @@ public class KillGnome : MonoBehaviour
                 Destroy(collision.gameObject, 0.2f);
                 Destroy(gameObject);
             }
-            
-            
         }
     }
 }
