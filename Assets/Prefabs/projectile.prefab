@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a842912d258a64d539dca73284182557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gnomeDeadSFX: {fileID: 8300000, guid: 943534146f6e23143bce32ad1dae3435, type: 3}
 --- !u!1 &5597867921534488522
 GameObject:
   m_ObjectHideFlags: 0

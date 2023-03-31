@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KillGnome : MonoBehaviour
 {
+    public AudioClip gnomeDeadSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,8 @@ public class KillGnome : MonoBehaviour
                 // gnomeAnimator.SetTrigger("isDead");
                 enemyProperties.isDead = true;
                 GameObject.FindObjectOfType<LevelManager>().TrackKill();
-                Destroy(collision.gameObject, 0.5f);
+                AudioSource.PlayClipAtPoint(gnomeDeadSFX, collision.gameObject.transform.position, 10f);
+                Destroy(collision.gameObject, 0.2f);
                 Destroy(gameObject);
             }
             
