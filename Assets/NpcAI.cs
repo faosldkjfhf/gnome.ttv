@@ -47,7 +47,7 @@ public class NpcAI : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         switch(currentState)
         {
-            case FSMStates.Walking:
+            case FSMStates.Walking: 
                 UpdateWalkingState();
                 break;
             case FSMStates.Talking:
@@ -73,7 +73,7 @@ public class NpcAI : MonoBehaviour
 
         anim.SetInteger("animState", 1);
 
-        if (Vector3.Distance(transform.position, nextDestination) < 1)
+        if (Vector3.Distance(transform.position, nextDestination) < 5)
         {
             FindNextPoint();
         }
