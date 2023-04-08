@@ -63,9 +63,9 @@ public class NpcAI : MonoBehaviour
      */
     void UpdateWalkingState()
     {
-        print("Patrolling");
+        // print("Patrolling");
 
-        print(currentDestinationIndex);
+        // print(currentDestinationIndex);
 
         agent.stoppingDistance = 0;
 
@@ -92,7 +92,7 @@ public class NpcAI : MonoBehaviour
      */
     void UpdateTalkingState()
     {
-        print("Talking");
+        // print("Talking");
 
         agent.speed = 0;
 
