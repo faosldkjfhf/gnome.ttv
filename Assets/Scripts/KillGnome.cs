@@ -24,12 +24,12 @@ public class KillGnome : MonoBehaviour
         {
             BasicEnemyBehavior enemyProperties = collision.gameObject.GetComponent<BasicEnemyBehavior>();
             if (!enemyProperties.isDead) {
-                // Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
-                // gnomeAnimator.SetTrigger("isDead");
+                Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
+                gnomeAnimator.SetTrigger("isDead");
                 enemyProperties.isDead = true;
                 GameObject.FindObjectOfType<LevelManager>().TrackKill();
                 AudioSource.PlayClipAtPoint(gnomeDeadSFX, collision.gameObject.transform.position, 10f);
-                Destroy(collision.gameObject, 0.2f);
+                Destroy(collision.gameObject, 1f);
                 Destroy(gameObject);
             }
         }
