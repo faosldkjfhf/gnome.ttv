@@ -5,8 +5,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     Transform playerBody;
-    public float mouseSensitivity = 10;
-
+    public static float mouseSensitivity = 10;
     float pitch = 0;
 
     // Start is called before the first frame update
@@ -23,6 +22,7 @@ public class MouseLook : MonoBehaviour
     {
         float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        print("mouseSense" + mouseSensitivity);
     
         // yaw
         playerBody.Rotate(Vector3.up * moveX);
@@ -32,5 +32,10 @@ public class MouseLook : MonoBehaviour
 
         pitch = Mathf.Clamp(pitch, -90f, 90);
         transform.localRotation = Quaternion.Euler(pitch, 0, 0);
+    }
+
+    public void AdjustSpeed(float newSpeed)
+    {
+        mouseSensitivity = newSpeed * 10;
     }
 }
