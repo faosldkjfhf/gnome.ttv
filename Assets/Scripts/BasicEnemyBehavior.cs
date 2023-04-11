@@ -43,7 +43,7 @@ public class BasicEnemyBehavior : MonoBehaviour
         GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
         agent.stoppingDistance = minDistance;
 
-        gnomeAnimator = GetComponent<Animator>();
+        gnomeAnimator = GetComponentInChildren<Animator>();
         isWalking = false;
     }
 
@@ -57,15 +57,16 @@ public class BasicEnemyBehavior : MonoBehaviour
         if (distance <= maxDistance && distance >= minDistance)
         {
             agent.SetDestination(player.position);
-            isWalking = true;
+            gnomeAnimator.SetBool("isWalking", true);
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
         else 
         {
-            isWalking = false;
+            gnomeAnimator.SetBool("isWalking", false);
+            speed = 0;
         }
         Debug.Log("isWalking: " + isWalking);
-        gnomeAnimator.SetBool("isWalking", true);
+        //gnomeAnimator.SetBool("isWalking", isWalking);
     }
 
     private void OnTriggerEnter(Collider other)
