@@ -920,6 +920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  isWalking: 0
   player: {fileID: 0}
   speed: 10
   maxDistance: 30
@@ -951,7 +952,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199330072924196400}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 0b8f20f0a69f39a42af66081a589ecf5, type: 3}
   m_Controller: {fileID: 9100000, guid: f5761b718169b964688ab2eb286e9d24, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 2

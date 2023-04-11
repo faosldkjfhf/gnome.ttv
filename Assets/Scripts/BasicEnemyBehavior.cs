@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class BasicEnemyBehavior : MonoBehaviour
 {
     public bool isDead;
+    public bool isWalking;
 
     // the player
     public Transform player;
@@ -23,7 +24,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     public int damageAmount = 10;
 
     public NavMeshAgent agent;
-
+    Animator gnomeAnimator;
 
     void Awake() {
         // if target isn't assigned
@@ -35,11 +36,15 @@ public class BasicEnemyBehavior : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
     }
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
         agent.stoppingDistance = minDistance;
+
+        gnomeAnimator = GetComponent<Animator>();
+        isWalking = false;
     }
 
     // Update is called once per frame
@@ -52,8 +57,15 @@ public class BasicEnemyBehavior : MonoBehaviour
         if (distance <= maxDistance && distance >= minDistance)
         {
             agent.SetDestination(player.position);
+            isWalking = true;
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
+        else 
+        {
+            isWalking = false;
+        }
+        Debug.Log("isWalking: " + isWalking);
+        gnomeAnimator.SetBool("isWalking", true);
     }
 
     private void OnCollisionEnter(Collision collision)
