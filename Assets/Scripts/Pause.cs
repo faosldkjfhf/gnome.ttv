@@ -5,33 +5,34 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static bool isGamePaused = false;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
-            Debug.Log("esc is pressed");
-        }
-        else
-        {
-            ResumeGame();
+            if (isGamePaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
         }
     }
 
-    void PauseGame()
+    public void PauseGame()
     {
-        Time.timeScale = 0;
+        isGamePaused = true;
+        Time.timeScale = 0f;
     }
 
-    void ResumeGame()
+    public void ResumeGame()
     {
-        Time.timeScale = 1;
+        isGamePaused = false;
+        Time.timeScale = 1f; 
     }
+
 }

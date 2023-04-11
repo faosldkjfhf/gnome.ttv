@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6229492833973060727}
   - component: {fileID: 6229492833973060726}
+  - component: {fileID: 5043250248307625851}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -51,3 +52,15 @@ MonoBehaviour:
   gameOverSFX: {fileID: 8300000, guid: 9af7063b689263846b702ec85418fe9a, type: 3}
   gameWonSFX: {fileID: 8300000, guid: 6c894555f6e96ac4a85afc1a26e71f7a, type: 3}
   nextLevel: 
+--- !u!114 &5043250248307625851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229492833973060720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5a07509c4d4864d8b2b3df8940cb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
