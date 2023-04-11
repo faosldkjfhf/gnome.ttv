@@ -9,8 +9,7 @@ public class InventoryManager : MonoBehaviour
 {
     public int selectedSlot = 0;
 
-    public GameObject weapon1Prefab;
-    public GameObject weapon2Prefab;
+    public GameObject[] weapons;
 
     public static GameObject currentWeaponPrefab; 
 
@@ -30,7 +29,7 @@ public class InventoryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentWeaponPrefab = weapon1Prefab;
+        currentWeaponPrefab = weapons[0];
         SelectWeapon();
     }
 
@@ -41,7 +40,7 @@ public class InventoryManager : MonoBehaviour
 
         // checks if the scroll wheel is used to swap weapon slots 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) {
-            if (selectedSlot >= transform.childCount - 1) {
+            if (selectedSlot >= weapons.Length - 1) {
                 selectedSlot = 0;
             } 
             else {
@@ -50,7 +49,7 @@ public class InventoryManager : MonoBehaviour
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f) {
             if (selectedSlot <= 0) {
-                selectedSlot = transform.childCount - 1;
+                selectedSlot = weapons.Length - 1;
             }
             else {
                 selectedSlot--;
@@ -61,7 +60,7 @@ public class InventoryManager : MonoBehaviour
         // check if number keys are used to swap weapon slots 
         for (int i = 0; i < keyCodes.Length; i++) {
             if (Input.GetKey(keyCodes[i])) {
-                Debug.Log("HI");
+                // Debug.Log("HI");
                 selectedSlot = i;
             }
         }
@@ -73,7 +72,7 @@ public class InventoryManager : MonoBehaviour
 
     void SelectWeapon() {
         int i = 0;
-        foreach (Transform weapon in transform) {
+        /*foreach (Transform weapon in transform) {
             if (i == selectedSlot) {
                 weapon.gameObject.SetActive(true);
                 currentWeaponPrefab = weapon.gameObject;
@@ -81,6 +80,19 @@ public class InventoryManager : MonoBehaviour
             }
             else {
                 weapon.gameObject.SetActive(false);
+            }
+            i++;
+        }*/
+        foreach(GameObject weapon in weapons)
+        {
+            if (i == selectedSlot)
+            {
+                currentWeaponPrefab = weapon;
+                weapon.SetActive(true);
+            }
+            else
+            {
+                weapon.SetActive(false);
             }
             i++;
         }

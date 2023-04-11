@@ -68,9 +68,9 @@ public class BasicEnemyBehavior : MonoBehaviour
         gnomeAnimator.SetBool("isWalking", true);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") && PlayerHealth.currentHealth > 0)
+        if (other.CompareTag("Player") && PlayerHealth.currentHealth > 0)
         {
             GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
             // Debug.Log("Player hit!");

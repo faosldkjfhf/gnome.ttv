@@ -18,18 +18,19 @@ public class ProjectileKillGnome : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            BasicEnemyBehavior enemyProperties = collision.gameObject.GetComponent<BasicEnemyBehavior>();
-            if (!enemyProperties.isDead) {
-                Animator gnomeAnimator = collision.gameObject.GetComponent<Animator>();
+            BasicEnemyBehavior enemyProperties = other.GetComponent<BasicEnemyBehavior>();
+            if (!enemyProperties.isDead)
+            {
+                Animator gnomeAnimator = other.GetComponent<Animator>();
                 gnomeAnimator.SetTrigger("isDead");
                 enemyProperties.isDead = true;
                 GameObject.FindObjectOfType<LevelManager>().TrackKill();
-                AudioSource.PlayClipAtPoint(gnomeDeadSFX, collision.gameObject.transform.position, 10f);
-                Destroy(collision.gameObject, 1f);
+                AudioSource.PlayClipAtPoint(gnomeDeadSFX, other.transform.position, 10f);
+                Destroy(other, 1f);
                 Destroy(gameObject);
             }
         }
