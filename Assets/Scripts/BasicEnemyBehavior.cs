@@ -71,8 +71,6 @@ public class BasicEnemyBehavior : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, gnomeProperties.maxDistance);
     }
 
-  
-
     public void InstantKillGnome() {
         gnomeAnimator.SetTrigger("isDead");
         isDead = true;
@@ -82,9 +80,9 @@ public class BasicEnemyBehavior : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
-        Debug.Log("health previous " + health);
+        // Debug.Log("health previous " + health);
         health -= damage;
-        Debug.Log("health left " + health);
+        // Debug.Log("health left " + health);
         if (IsDead()) {
             InstantKillGnome();
         }

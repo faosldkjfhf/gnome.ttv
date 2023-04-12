@@ -10,8 +10,6 @@ public class WaterGunBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("hit");
-            Debug.Log(waterDamage);
             Destroy(gameObject);
             BasicEnemyBehavior enemyProperties = other.GetComponent<BasicEnemyBehavior>();
             enemyProperties.TakeDamage(waterDamage);
