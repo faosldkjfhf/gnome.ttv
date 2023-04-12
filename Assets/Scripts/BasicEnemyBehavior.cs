@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class BasicEnemyBehavior : MonoBehaviour
 {
+    public GnomeScriptableObject gnomeProperties;
     public bool isDead;
     public bool isWalking;
 
@@ -58,14 +59,16 @@ public class BasicEnemyBehavior : MonoBehaviour
         {
             agent.SetDestination(player.position);
             isWalking = true;
+            gnomeAnimator.SetBool("isWalking", true);
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
         else 
         {
             isWalking = false;
+            gnomeAnimator.SetBool("isWalking", false);
         }
         Debug.Log("isWalking: " + isWalking);
-        gnomeAnimator.SetBool("isWalking", true);
+
     }
 
     private void OnTriggerEnter(Collider other)

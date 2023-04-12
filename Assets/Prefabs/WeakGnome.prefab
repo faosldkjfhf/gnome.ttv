@@ -704,7 +704,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2864
+  m_VersionIndex: 2858
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -919,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8f844336519453385eb5bfb22b965d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gnomeProperties: {fileID: 0}
   isDead: 0
   isWalking: 0
   player: {fileID: 0}
