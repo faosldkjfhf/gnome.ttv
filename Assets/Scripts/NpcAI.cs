@@ -146,7 +146,7 @@ public class NpcAI : MonoBehaviour
 
         currentDestinationIndex = (currentDestinationIndex + 1) % wanderPoints.Length;
 
-        Debug.Log(currentDestinationIndex);
+        // Debug.Log(currentDestinationIndex);
 
         agent.SetDestination(nextDestination);
     }

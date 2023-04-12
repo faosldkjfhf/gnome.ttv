@@ -8,7 +8,10 @@ public class BasicEnemyBehavior : MonoBehaviour
     public GnomeScriptableObject gnomeProperties;
     public AudioClip gnomeDeadSFX;
 
-    bool isDead;
+
+
+    public bool isDead;
+    int health;
     bool isWalking;
 
     // // the player
@@ -31,6 +34,7 @@ public class BasicEnemyBehavior : MonoBehaviour
 
         gnomeAnimator = GetComponent<Animator>();
         isWalking = false;
+        health = gnomeProperties.maxHealth;
     }
 
     // Update is called once per frame
@@ -52,7 +56,7 @@ public class BasicEnemyBehavior : MonoBehaviour
             isWalking = false;
             gnomeAnimator.SetBool("isWalking", false);
         }
-        Debug.Log("isWalking: " + isWalking);
+        // Debug.Log("isWalking: " + isWalking);
 
     }
 
@@ -67,18 +71,26 @@ public class BasicEnemyBehavior : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, gnomeProperties.maxDistance);
     }
 
+  
+
     public void InstantKillGnome() {
         gnomeAnimator.SetTrigger("isDead");
         isDead = true;
         GameObject.FindObjectOfType<LevelManager>().TrackKill();
-        AudioSource.PlayClipAtPoint(gnomeDeadSFX, collision.gameObject.transform.position, 10f);
+        AudioSource.PlayClipAtPoint(gnomeDeadSFX, gameObject.transform.position, 10f);
         Destroy(gameObject, 1f);
     }
 
     public void TakeDamage(int damage) {
-        gnomeProperties.TakeDamage(damage);
-        if (gnomeProperties.IsDead()) {
+        Debug.Log("health previous " + health);
+        health -= damage;
+        Debug.Log("health left " + health);
+        if (IsDead()) {
             InstantKillGnome();
         }
+    }
+
+      public bool IsDead() {
+        return health <= 0;
     }
 }
