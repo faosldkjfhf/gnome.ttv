@@ -6,7 +6,7 @@ using UnityEngine;
 public class GnomeScriptableObject : ScriptableObject {
 
     // the target that this gnome follows
-    public Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+    public Transform target;
 
     // the speed at which the enemy moves
     public float speed = 10f;
@@ -19,6 +19,29 @@ public class GnomeScriptableObject : ScriptableObject {
 
     // amount of damage
     public int damageAmount = 10;
+
+    // health of the gnome 
+    public int health = 10;
+
+    void OnEnable() {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+
+    public void TakeDamage(int damage) {
+        health -= damage;
+    }
+
+    public bool IsDead() {
+        return health <= 0;
+    }
+
+    public void DamagePlayer(Collider other) {
+        if (other.CompareTag("Player") && PlayerHealth.currentHealth > 0)
+        {
+            GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
+        }
+    }
 
 }
 

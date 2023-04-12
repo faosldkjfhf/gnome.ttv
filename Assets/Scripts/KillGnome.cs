@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillGnome : MonoBehaviour
 {
-    public AudioClip gnomeDeadSFX;
+    
 
     private void OnCollisionEnter(Collision collision)
     {

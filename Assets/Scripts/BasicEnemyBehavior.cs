@@ -6,43 +6,28 @@ using UnityEngine.AI;
 public class BasicEnemyBehavior : MonoBehaviour
 {
     public GnomeScriptableObject gnomeProperties;
-    public bool isDead;
-    public bool isWalking;
+    public AudioClip gnomeDeadSFX;
 
-    // the player
-    public Transform player;
+    bool isDead;
+    bool isWalking;
 
-    // the speed at which the enemy moves
-    public float speed = 10f;
-
-    // the max range of the enemy detection
-    public float maxDistance = 30f;
-
-    // the min range of enemy detection to prevent weird collisions
-    public float minDistance = 0.75f;
-
-    // amount of damage
-    public int damageAmount = 10;
+    // // the player
+    // public Transform player;
 
     public NavMeshAgent agent;
     Animator gnomeAnimator;
 
     void Awake() {
-        // if target isn't assigned
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
         isDead = false;
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
+        agent.speed = gnomeProperties.speed;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
-        agent.stoppingDistance = minDistance;
+        agent.stoppingDistance = gnomeProperties.minDistance;
 
         gnomeAnimator = GetComponent<Animator>();
         isWalking = false;
@@ -51,13 +36,13 @@ public class BasicEnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var distance = Vector3.Distance(transform.position, player.position);
+        var distance = Vector3.Distance(transform.position, gnomeProperties.target.position);
         // Debug.Log(distance);
-        var step = speed * Time.deltaTime;
-        transform.LookAt(player);
-        if (distance <= maxDistance && distance >= minDistance)
+        var step = gnomeProperties.speed * Time.deltaTime;
+        transform.LookAt(gnomeProperties.target);
+        if (distance <= gnomeProperties.maxDistance && distance >= gnomeProperties.minDistance)
         {
-            agent.SetDestination(player.position);
+            agent.SetDestination(gnomeProperties.target.position);
             isWalking = true;
             gnomeAnimator.SetBool("isWalking", true);
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
@@ -73,16 +58,27 @@ public class BasicEnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && PlayerHealth.currentHealth > 0)
-        {
-            GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
-            // Debug.Log("Player hit!");
-        }
+        gnomeProperties.DamagePlayer(other);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, maxDistance);
+        Gizmos.DrawWireSphere(transform.position, gnomeProperties.maxDistance);
+    }
+
+    public void InstantKillGnome() {
+        gnomeAnimator.SetTrigger("isDead");
+        isDead = true;
+        GameObject.FindObjectOfType<LevelManager>().TrackKill();
+        AudioSource.PlayClipAtPoint(gnomeDeadSFX, collision.gameObject.transform.position, 10f);
+        Destroy(gameObject, 1f);
+    }
+
+    public void TakeDamage(int damage) {
+        gnomeProperties.TakeDamage(damage);
+        if (gnomeProperties.IsDead()) {
+            InstantKillGnome();
+        }
     }
 }
