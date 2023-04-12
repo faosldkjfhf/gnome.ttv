@@ -11,8 +11,9 @@ public class BasicEnemyBehavior : MonoBehaviour
 
 
     public bool isDead;
+    public bool isWalking;
     int health;
-    bool isWalking;
+    
 
     // // the player
     // public Transform player;
@@ -46,6 +47,7 @@ public class BasicEnemyBehavior : MonoBehaviour
         transform.LookAt(gnomeProperties.target);
         if (distance <= gnomeProperties.maxDistance && distance >= gnomeProperties.minDistance)
         {
+            Debug.Log(isWalking);
             agent.SetDestination(gnomeProperties.target.position);
             isWalking = true;
             gnomeAnimator.SetBool("isWalking", true);
