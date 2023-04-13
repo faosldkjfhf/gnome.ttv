@@ -62,7 +62,7 @@ public class BasicEnemyBehavior : MonoBehaviour
         else 
         {
             gnomeAnimator.SetBool("isWalking", false);
-            speed = 0;
+            gnomeProperties.speed = 0;
         }
         // Debug.Log("isWalking: " + isWalking);
         //gnomeAnimator.SetBool("isWalking", isWalking);
