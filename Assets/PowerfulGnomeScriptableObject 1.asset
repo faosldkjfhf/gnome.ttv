@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0151ceadfe93e42bf2b2f320d4f8f2, type: 3}
   m_Name: PowerfulGnomeScriptableObject 1
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 15
-  maxDistance: 30
+  maxDistance: 60
   minDistance: 0.75
   damageAmount: 20
   maxHealth: 30

@@ -7,6 +7,7 @@ public class BasicEnemyBehavior : MonoBehaviour
 {
     public GnomeScriptableObject gnomeProperties;
     public AudioClip gnomeDeadSFX;
+    public Transform target;
 
 
 
@@ -32,6 +33,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     {
         GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
         agent.stoppingDistance = gnomeProperties.minDistance;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 
         gnomeAnimator = GetComponent<Animator>();
         isWalking = false;
@@ -41,14 +43,14 @@ public class BasicEnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var distance = Vector3.Distance(transform.position, gnomeProperties.target.position);
+        var distance = Vector3.Distance(transform.position, target.position);
         // Debug.Log(distance);
         var step = gnomeProperties.speed * Time.deltaTime;
-        transform.LookAt(gnomeProperties.target);
+        transform.LookAt(target);
         if (distance <= gnomeProperties.maxDistance && distance >= gnomeProperties.minDistance)
         {
-            Debug.Log(isWalking);
-            agent.SetDestination(gnomeProperties.target.position);
+            // Debug.Log(isWalking);
+            agent.SetDestination(target.position);
             isWalking = true;
             gnomeAnimator.SetBool("isWalking", true);
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);

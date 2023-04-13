@@ -5,9 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GnomeScriptableObject", menuName = "gnome.ttv/GnomeScriptableObject", order = 0)]
 public class GnomeScriptableObject : ScriptableObject {
 
-    // the target that this gnome follows
-    public Transform target;
-
     // the speed at which the enemy moves
     public float speed = 10f;
 
@@ -24,7 +21,7 @@ public class GnomeScriptableObject : ScriptableObject {
     public int maxHealth = 10;
 
     void OnEnable() {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     public void DamagePlayer(Collider other) {
