@@ -22,7 +22,7 @@ public class MouseLook : MonoBehaviour
     {
         float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        print("mouseSense" + mouseSensitivity);
+        // print("mouseSense" + mouseSensitivity);
     
         // yaw
         playerBody.Rotate(Vector3.up * moveX);

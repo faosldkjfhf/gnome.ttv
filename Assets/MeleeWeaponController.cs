@@ -12,7 +12,7 @@ public class MeleeWeaponController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1") && InventoryManager.currentWeaponPrefab.CompareTag("Melee"))
         {
             if (canAttack)
             {
