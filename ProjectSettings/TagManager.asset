@@ -13,6 +13,9 @@ TagManager:
   - WaterBullet
   - WanderPoint
   - Throwable
+  - BalloonProjectile
+  - Solid
+  - Explosion
   layers:
   - Default
   - TransparentFX
