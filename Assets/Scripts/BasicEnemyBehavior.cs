@@ -77,10 +77,13 @@ public class BasicEnemyBehavior : MonoBehaviour
 
     public void InstantKillGnome() {
         gnomeAnimator.SetTrigger("isDead");
+        if (!isDead)
+        {
+            GameObject.FindObjectOfType<LevelManager>().TrackKill();
+            AudioSource.PlayClipAtPoint(gnomeDeadSFX, gameObject.transform.position, 10f);
+            Destroy(gameObject, 1f);
+        }
         isDead = true;
-        GameObject.FindObjectOfType<LevelManager>().TrackKill();
-        AudioSource.PlayClipAtPoint(gnomeDeadSFX, gameObject.transform.position, 10f);
-        Destroy(gameObject, 1f);
     }
 
     public void TakeDamage(int damage) {
@@ -92,7 +95,12 @@ public class BasicEnemyBehavior : MonoBehaviour
         }
     }
 
-      public bool IsDead() {
+    public bool IsDead() {
         return health <= 0;
+    }
+
+    private void OnDestroy()
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
     }
 }
