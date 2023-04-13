@@ -735,7 +735,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2864
+  m_VersionIndex: 2903
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -952,10 +952,6 @@ MonoBehaviour:
   isDead: 0
   isWalking: 0
   target: {fileID: 0}
-  speed: 10
-  maxDistance: 30
-  minDistance: 0.75
-  damageAmount: 10
   agent: {fileID: 0}
   healthBar: {fileID: 0}
   gnomeProperties: {fileID: 11400000, guid: 04daa839335ceff458b40aede154cef9, type: 2}

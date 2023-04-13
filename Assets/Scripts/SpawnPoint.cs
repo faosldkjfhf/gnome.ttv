@@ -6,6 +6,7 @@ public class SpawnPoint : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public float spawnTime = 5;
+    public float randomRange = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,9 @@ public class SpawnPoint : MonoBehaviour
         if (GameObject.FindObjectOfType<LevelManager>().ShouldSpawnMore()) {
             Vector3 enemyPosition;
 
-            enemyPosition.x = gameObject.transform.position.x;
+            enemyPosition.x = gameObject.transform.position.x + Random.Range(-randomRange, randomRange);
             enemyPosition.y = gameObject.transform.position.y;
-            enemyPosition.z = gameObject.transform.position.z;
+            enemyPosition.z = gameObject.transform.position.z + + Random.Range(-randomRange, randomRange);;
 
             GameObject spawnedEnemy = Instantiate(enemyPrefab, enemyPosition, transform.rotation)
                 as GameObject;
@@ -27,4 +28,11 @@ public class SpawnPoint : MonoBehaviour
             spawnedEnemy.transform.parent = gameObject.transform;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, randomRange);
+    }
+
 }
