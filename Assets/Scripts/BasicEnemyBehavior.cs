@@ -53,6 +53,7 @@ public class BasicEnemyBehavior : MonoBehaviour
         // Debug.Log(distance);
         var step = gnomeProperties.speed * Time.deltaTime;
         transform.LookAt(target);
+        UpdateHealthBarUI();
         if (distance <= gnomeProperties.maxDistance && distance >= gnomeProperties.minDistance)
         {
             agent.SetDestination(target.position);
@@ -119,7 +120,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     private void UpdateHealthBarUI()
     {
         if (healthBar != null) {
-            healthBar.value = (health / gnomeProperties.maxHealth) * healthBar.maxValue;
+            healthBar.value = (int)(((double)health / (double)gnomeProperties.maxHealth) * healthBar.maxValue);
             Debug.Log("health: " + health);
             Debug.Log("max health: " + gnomeProperties.maxHealth);
             Debug.Log("max value: " + healthBar.maxValue);
