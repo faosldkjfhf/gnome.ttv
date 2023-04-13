@@ -951,12 +951,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   isWalking: 0
-  player: {fileID: 0}
+  target: {fileID: 0}
   speed: 10
   maxDistance: 30
   minDistance: 0.75
   damageAmount: 10
   agent: {fileID: 0}
+  healthBar: {fileID: 0}
+  gnomeProperties: {fileID: 11400000, guid: 04daa839335ceff458b40aede154cef9, type: 2}
+  gnomeDeadSFX: {fileID: 8300000, guid: 943534146f6e23143bce32ad1dae3435, type: 3}
 --- !u!54 &-4883305981298254876
 Rigidbody:
   m_ObjectHideFlags: 0

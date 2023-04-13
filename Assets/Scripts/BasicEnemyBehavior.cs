@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BasicEnemyBehavior : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     public bool isWalking;
 
     // the player
-    public Transform player;
+    public Transform target;
 
     // the speed at which the enemy moves
     public float speed = 10f;
@@ -26,37 +27,47 @@ public class BasicEnemyBehavior : MonoBehaviour
     public NavMeshAgent agent;
     Animator gnomeAnimator;
 
-    void Awake() {
-        // if target isn't assigned
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        isDead = false;
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
-    }
+    public Slider healthBar;
+
+    public GnomeScriptableObject gnomeProperties;
+
+    public AudioClip gnomeDeadSFX;
+
+    int health;
 
     // Start is called before the first frame update
     void Start()
     {
+        // level manager initialization 
         GameObject.FindObjectOfType<LevelManager>().TrackSpawn();
-        agent.stoppingDistance = minDistance;
 
+        // nav mesh agent initializaiton
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = gnomeProperties.speed;
+        agent.stoppingDistance = gnomeProperties.minDistance;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        // gnome animator initialization 
         gnomeAnimator = GetComponentInChildren<Animator>();
         isWalking = false;
+
+        // gnome health initialization 
+        health = gnomeProperties.maxHealth;
+        isDead = false;
+        healthBar = GetComponentInChildren<Slider>();
+        UpdateHealthBarUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var distance = Vector3.Distance(transform.position, player.position);
+        var distance = Vector3.Distance(transform.position, target.position);
         // Debug.Log(distance);
         var step = speed * Time.deltaTime;
-        transform.LookAt(player);
+        transform.LookAt(target);
         if (distance <= maxDistance && distance >= minDistance)
         {
-            agent.SetDestination(player.position);
+            agent.SetDestination(target.position);
             gnomeAnimator.SetBool("isWalking", true);
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
@@ -82,5 +93,43 @@ public class BasicEnemyBehavior : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, maxDistance);
+    }
+
+    public void InstantKillGnome()
+    {
+        gnomeAnimator.SetTrigger("isDead");
+        if (!isDead)
+        {
+            GameObject.FindObjectOfType<LevelManager>().TrackKill();
+            AudioSource.PlayClipAtPoint(gnomeDeadSFX, gameObject.transform.position, 10f);
+            Destroy(gameObject, 1f);
+        }
+        isDead = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        // Debug.Log("health previous " + health);
+        health -= damage;
+        // Debug.Log("health left " + health);
+        if (IsDead())
+        {
+            InstantKillGnome();
+        }
+    }
+
+    public bool IsDead()
+    {
+        return health <= 0;
+    }
+
+    private void OnDestroy()
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+    }
+
+    private void UpdateHealthBarUI()
+    {
+        healthBar.value = (health / gnomeProperties.maxHealth) * healthBar.maxValue;
     }
 }
