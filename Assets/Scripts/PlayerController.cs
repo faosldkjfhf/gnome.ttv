@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float playerSpeed = 2f;
-    public float gravity = 9.81f;
+    public float playerSpeed = 20f;
+    public float gravity = 20f;
     public float airControl = 10f;
     public float jumpHeight = 3.0f;
+    public float speedBoost = 1.5f;
 
-    public AudioSource walkingSFX;
-
+    AudioSource walkingSFX;
     Vector3 moveDirection;
     CharacterController controller;
     float finalSpeed;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
         // if the player is pressing the sprint key (left shift), moves faster
         if (Input.GetKey(KeyCode.LeftShift)) {
-            finalSpeed = playerSpeed * 2;
+            finalSpeed = playerSpeed * speedBoost;
         } 
         else {
             finalSpeed = playerSpeed;
@@ -51,10 +51,10 @@ public class PlayerController : MonoBehaviour
             // if the player is moving, play walkingSFX
             if (!controlInput.Equals(Vector3.zero)) {
                 // if the player is running, louder footsteps
-                if (finalSpeed == playerSpeed * 2) {
-                    walkingSFX.volume = 1f;
-                } else {
+                if (finalSpeed == playerSpeed * speedBoost) {
                     walkingSFX.volume = 0.5f;
+                } else {
+                    walkingSFX.volume = 0.25f;
                 }
                 walkingSFX.enabled = true;
             } else {
@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            walkingSFX.enabled = false;
             controlInput.y = moveDirection.y;
             moveDirection = Vector3.Lerp(moveDirection, controlInput, airControl * Time.deltaTime);
         }
