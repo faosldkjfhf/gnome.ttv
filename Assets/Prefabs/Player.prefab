@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 20
-  gravity: 9.81
+  gravity: 20
   airControl: 10
   jumpHeight: 3
   speedBoost: 1.5
@@ -1285,6 +1285,10 @@ PrefabInstance:
     - target: {fileID: 9183741065942492942, guid: 5826aca24a339d54ca4e3c00536d2b2f, type: 3}
       propertyPath: m_Name
       value: balloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183741065942492942, guid: 5826aca24a339d54ca4e3c00536d2b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5826aca24a339d54ca4e3c00536d2b2f, type: 3}
