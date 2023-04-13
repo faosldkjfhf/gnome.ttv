@@ -12,6 +12,7 @@ TagManager:
   - UIPanel
   - WaterBullet
   - WanderPoint
+  - Throwable
   layers:
   - Default
   - TransparentFX
