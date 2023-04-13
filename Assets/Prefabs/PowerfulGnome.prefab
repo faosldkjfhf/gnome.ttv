@@ -901,7 +901,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199330072924196400}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.81
   m_Height: 2.27
@@ -919,12 +919,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8f844336519453385eb5bfb22b965d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gnomeProperties: {fileID: 11400000, guid: c0ff704d67f645c4b8e6957ae5389602, type: 2}
+  gnomeDeadSFX: {fileID: 8300000, guid: 943534146f6e23143bce32ad1dae3435, type: 3}
   isDead: 0
-  player: {fileID: 0}
-  speed: 15
-  maxDistance: 30
-  minDistance: 0.75
-  damageAmount: 20
+  isWalking: 0
   agent: {fileID: 0}
 --- !u!54 &-4883305981298254876
 Rigidbody:
