@@ -12,18 +12,6 @@ public class BasicEnemyBehavior : MonoBehaviour
     // the player
     public Transform target;
 
-    // the speed at which the enemy moves
-    public float speed = 10f;
-
-    // the max range of the enemy detection
-    public float maxDistance = 30f;
-
-    // the min range of enemy detection to prevent weird collisions
-    public float minDistance = 0.75f;
-
-    // amount of damage
-    public int damageAmount = 10;
-
     public NavMeshAgent agent;
     Animator gnomeAnimator;
 
@@ -63,9 +51,9 @@ public class BasicEnemyBehavior : MonoBehaviour
     {
         var distance = Vector3.Distance(transform.position, target.position);
         // Debug.Log(distance);
-        var step = speed * Time.deltaTime;
+        var step = gnomeProperties.speed * Time.deltaTime;
         transform.LookAt(target);
-        if (distance <= maxDistance && distance >= minDistance)
+        if (distance <= gnomeProperties.maxDistance && distance >= gnomeProperties.minDistance)
         {
             agent.SetDestination(target.position);
             gnomeAnimator.SetBool("isWalking", true);
@@ -76,7 +64,7 @@ public class BasicEnemyBehavior : MonoBehaviour
             gnomeAnimator.SetBool("isWalking", false);
             speed = 0;
         }
-        Debug.Log("isWalking: " + isWalking);
+        // Debug.Log("isWalking: " + isWalking);
         //gnomeAnimator.SetBool("isWalking", isWalking);
     }
 
@@ -84,7 +72,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player") && PlayerHealth.currentHealth > 0)
         {
-            GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(damageAmount);
+            GameObject.FindObjectOfType<PlayerHealth>().TakeDamage(gnomeProperties.damageAmount);
             // Debug.Log("Player hit!");
         }
     }
@@ -92,7 +80,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, maxDistance);
+        Gizmos.DrawWireSphere(transform.position, gnomeProperties.maxDistance);
     }
 
     public void InstantKillGnome()
@@ -130,6 +118,12 @@ public class BasicEnemyBehavior : MonoBehaviour
 
     private void UpdateHealthBarUI()
     {
-        healthBar.value = (health / gnomeProperties.maxHealth) * healthBar.maxValue;
+        if (healthBar != null) {
+            healthBar.value = (health / gnomeProperties.maxHealth) * healthBar.maxValue;
+            Debug.Log("health: " + health);
+            Debug.Log("max health: " + gnomeProperties.maxHealth);
+            Debug.Log("max value: " + healthBar.maxValue);
+            Debug.Log(healthBar.value);
+        }
     }
 }
