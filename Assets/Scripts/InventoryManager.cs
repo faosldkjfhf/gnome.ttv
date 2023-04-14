@@ -58,7 +58,7 @@ public class InventoryManager : MonoBehaviour
 
         
         // check if number keys are used to swap weapon slots 
-        for (int i = 0; i < keyCodes.Length; i++) {
+        for (int i = 0; i < weapons.Length; i++) {
             if (Input.GetKey(keyCodes[i])) {
                 // Debug.Log("HI");
                 selectedSlot = i;
