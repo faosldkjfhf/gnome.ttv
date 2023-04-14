@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public Text gameText;
     public Text scoreText;
     public GameObject uiPanel;
+    public LevelScriptableObject levelProperties;
 
     [Tooltip("How many enemies to kill to pass level")]
     public int enemiesToSpawn = 10;
@@ -32,6 +33,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         isGameOver = false; 
+        enemiesToSpawn = levelProperties.currentLevelGoal;
         score = 0;
 
         SetScoreText();
@@ -44,7 +46,9 @@ public class LevelManager : MonoBehaviour
             SetScoreText();
            // Debug.Log(enemyHasSpawned);
            if (enemiesKilled >= enemiesToSpawn) {
-            LevelBeat();
+                levelProperties.AdvanceLevel();
+                LevelBeat();
+
             }
         }
         

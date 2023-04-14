@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0151ceadfe93e42bf2b2f320d4f8f2, type: 3}
-  m_Name: PowerfulGnomeScriptableObject 1
+  m_Script: {fileID: 11500000, guid: 54e98d4b48ab97841bcc00e722cdec4d, type: 3}
+  m_Name: LevelScriptableObject
   m_EditorClassIdentifier: 
-  speed: 15
-  maxDistance: 60
-  minDistance: 0.75
-  damageAmount: 20
-  maxHealth: 50
+  currentLevel: 0
+  currentLevelGoal: 10
