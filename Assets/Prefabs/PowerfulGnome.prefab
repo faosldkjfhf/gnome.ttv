@@ -704,7 +704,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2924
+  m_VersionIndex: 3035
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1810,7 +1810,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b2b3df0c2a082e944bdd77baaa4c85ab, type: 3}
   m_Controller: {fileID: 9100000, guid: f5761b718169b964688ab2eb286e9d24, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
