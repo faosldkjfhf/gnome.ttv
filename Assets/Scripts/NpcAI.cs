@@ -17,6 +17,7 @@ public class NpcAI : MonoBehaviour
     public GameObject[] wanderPoints;
     public float walkingSpeed = 3.5f;
     public AudioClip speech;
+    public float volume = 0.5f;
 
     private FSMStates currentState;
     private Animator anim;
@@ -107,7 +108,7 @@ public class NpcAI : MonoBehaviour
         {
             elapsedTime = 0f;
             anim.SetInteger("animState", 2);
-            AudioSource.PlayClipAtPoint(speech, transform.position);
+            AudioSource.PlayClipAtPoint(speech, transform.position, volume);
             isTalking = true;
         }
 

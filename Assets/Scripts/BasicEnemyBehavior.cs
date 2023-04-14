@@ -56,14 +56,17 @@ public class BasicEnemyBehavior : MonoBehaviour
         UpdateHealthBarUI();
         if (distance <= gnomeProperties.maxDistance && distance >= gnomeProperties.minDistance)
         {
+            Debug.Log(agent.speed);
             agent.SetDestination(target.position);
             gnomeAnimator.SetBool("isWalking", true);
+            agent.speed = gnomeProperties.speed;
+            Debug.Log(agent.speed);
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
         else 
         {
             gnomeAnimator.SetBool("isWalking", false);
-            gnomeProperties.speed = 0;
+            agent.speed = 0;
         }
         // Debug.Log("isWalking: " + isWalking);
         //gnomeAnimator.SetBool("isWalking", isWalking);

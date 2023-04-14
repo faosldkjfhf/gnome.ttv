@@ -735,7 +735,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2903
+  m_VersionIndex: 2930
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -954,7 +954,7 @@ MonoBehaviour:
   target: {fileID: 0}
   agent: {fileID: 0}
   healthBar: {fileID: 0}
-  gnomeProperties: {fileID: 11400000, guid: 04daa839335ceff458b40aede154cef9, type: 2}
+  gnomeProperties: {fileID: 11400000, guid: 8e232cd7812727d4eabb665eef33b078, type: 2}
   gnomeDeadSFX: {fileID: 8300000, guid: 943534146f6e23143bce32ad1dae3435, type: 3}
 --- !u!54 &-4883305981298254876
 Rigidbody:
