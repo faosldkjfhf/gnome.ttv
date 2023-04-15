@@ -42,10 +42,9 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("enemies to beat: " + enemiesToSpawn);
         if (!isGameOver) {
-            Debug.Log(enemiesToSpawn);
             SetScoreText();
-           // Debug.Log(enemyHasSpawned);
            if (enemiesKilled >= enemiesToSpawn) {
                 isGameOver = true;
            }
@@ -88,7 +87,6 @@ public class LevelManager : MonoBehaviour
 
     public void LevelBeat() {
         isGameOver = true;
-        levelProperties.AdvanceLevel();
         gameText.text = "YOU WIN!";
         uiPanel.GetComponent<Image>().color =  new Color(1, 1, 1, 0.5f);
         uiPanel.gameObject.SetActive(true);

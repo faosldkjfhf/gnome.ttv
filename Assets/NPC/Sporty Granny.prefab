@@ -1632,6 +1632,8 @@ MonoBehaviour:
   - {fileID: 0}
   walkingSpeed: 3.5
   speech: {fileID: 8300000, guid: 8ab052a75d91a244eaffb3d6754b72af, type: 3}
+  interactive: {fileID: 0}
+  volume: 0.5
 --- !u!195 &5866666021889675874
 NavMeshAgent:
   m_ObjectHideFlags: 0

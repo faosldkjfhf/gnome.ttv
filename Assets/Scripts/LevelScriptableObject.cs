@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 
@@ -15,8 +16,16 @@ public class LevelScriptableObject : ScriptableObject {
 
     public int currentLevel = 0;
 
-    public int currentLevelGoal = LEVEL_INFO.ElementAt(0).Value;
+    //public int currentLevelGoal = LEVEL_INFO.ElementAt(0).Value;
 
+    public static string currentScene = "main-house";
+    public int currentLevelGoal = LEVEL_INFO[currentScene];
+
+    private void OnEnable()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+        currentLevelGoal = LEVEL_INFO[currentScene];
+    }
 
     public void AdvanceLevel() {
         currentLevel += 1;
