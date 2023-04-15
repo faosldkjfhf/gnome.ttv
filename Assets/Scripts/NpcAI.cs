@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using TMPro;
 
 public class NpcAI : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class NpcAI : MonoBehaviour
     public GameObject[] wanderPoints;
     public float walkingSpeed = 3.5f;
     public AudioClip speech;
+    public TextMeshProUGUI interactive;
     public float volume = 0.5f;
 
     private FSMStates currentState;
@@ -27,6 +30,7 @@ public class NpcAI : MonoBehaviour
     private float distanceToPlayer;
     private bool isTalking;
     private float elapsedTime;
+    private bool alreadyEnded = false;
 
 
     // Start is called before the first frame update
@@ -73,14 +77,28 @@ public class NpcAI : MonoBehaviour
         agent.speed = walkingSpeed;
 
         anim.SetInteger("animState", 1);
-
-        if (Vector3.Distance(transform.position, nextDestination) < 5)
+        if (LevelManager.isGameOver)
+        {
+            nextDestination = player.position;
+            agent.stoppingDistance = talkingDistance;
+        }
+        else if (Vector3.Distance(transform.position, nextDestination) < 5)
         {
             FindNextPoint();
         }
-        else if (distanceToPlayer <= talkingDistance)
+
+        if (distanceToPlayer <= talkingDistance)
         {
-            currentState = FSMStates.Talking;
+            interactive.enabled = true;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                currentState = FSMStates.Talking;
+            }
+
+        }
+        else
+        {
+            interactive.enabled = false;
         }
 
         FaceTarget(nextDestination);
@@ -95,7 +113,10 @@ public class NpcAI : MonoBehaviour
     {
         // print("Talking");
 
+        interactive.enabled = false;
+
         agent.speed = 0;
+        agent.stoppingDistance = 0;
 
         if (distanceToPlayer > talkingDistance)
         {
@@ -106,10 +127,21 @@ public class NpcAI : MonoBehaviour
 
         if (!isTalking)
         {
-            elapsedTime = 0f;
-            anim.SetInteger("animState", 2);
-            AudioSource.PlayClipAtPoint(speech, transform.position, volume);
-            isTalking = true;
+            if (!LevelManager.isGameOver)
+            {
+                elapsedTime = 0f;
+                anim.SetInteger("animState", 2);
+                AudioSource.PlayClipAtPoint(speech, transform.position, volume);
+                isTalking = true;
+            }
+            else
+            {
+                if (!alreadyEnded)
+                {
+                    GameObject.FindObjectOfType<LevelManager>().LevelBeat();
+                    alreadyEnded = true;
+                }
+            }
         }
 
         if (isTalking == true && elapsedTime >= speech.length)
