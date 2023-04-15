@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e98d4b48ab97841bcc00e722cdec4d, type: 3}
   m_Name: LevelScriptableObject
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  currentLevelGoal: 10
+  currentLevel: 2
+  currentLevelGoal: 150

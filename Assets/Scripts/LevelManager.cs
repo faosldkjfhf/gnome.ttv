@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         if (!isGameOver) {
+            Debug.Log(enemiesToSpawn);
             SetScoreText();
            // Debug.Log(enemyHasSpawned);
            if (enemiesKilled >= enemiesToSpawn) {
