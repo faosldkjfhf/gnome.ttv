@@ -31,6 +31,12 @@ public class LevelScriptableObject : ScriptableObject {
         currentLevel += 1;
         currentLevelGoal = LEVEL_INFO.ElementAt(currentLevel).Value;
     }
+
+    public void UpdateProperties()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+        currentLevelGoal = LEVEL_INFO[currentScene];
+    }
 }
 
 
