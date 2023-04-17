@@ -49,8 +49,6 @@ public class LevelManager : MonoBehaviour
             SetScoreText();
            if (enemiesKilled >= enemiesToSpawn) {
                 isGameOver = true;
-                levelProperties.AdvanceLevel();
-                LevelBeat();
            }
         }
         
@@ -92,6 +90,7 @@ public class LevelManager : MonoBehaviour
     public void LevelBeat() {
         isGameOver = true;
         gameText.text = "YOU WIN!";
+        levelProperties.AdvanceLevel();
         uiPanel.GetComponent<Image>().color =  new Color(1, 1, 1, 0.5f);
         uiPanel.gameObject.SetActive(true);
         gameText.gameObject.SetActive(true);
