@@ -32,7 +32,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isGameOver = false; 
+        isGameOver = false;
+        levelProperties.UpdateProperties();
         enemiesToSpawn = levelProperties.currentLevelGoal;
         score = 0;
 
