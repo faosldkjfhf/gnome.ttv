@@ -3192,6 +3192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  levelProperties: {fileID: 11400000, guid: 6200f7dcc98c5454d8b8e27864808950, type: 2}
 --- !u!1 &2006637678
 GameObject:
   m_ObjectHideFlags: 0
