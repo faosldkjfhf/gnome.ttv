@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     {
         isGameOver = false;
         levelProperties.UpdateProperties();
+        levelProperties.PrintLevelInfo();
         enemiesToSpawn = levelProperties.currentLevelGoal;
         score = 0;
 
@@ -43,11 +44,13 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("enemies to beat: " + enemiesToSpawn);
+        // Debug.Log("enemies to beat: " + enemiesToSpawn);
         if (!isGameOver) {
             SetScoreText();
            if (enemiesKilled >= enemiesToSpawn) {
                 isGameOver = true;
+                levelProperties.AdvanceLevel();
+                LevelBeat();
            }
         }
         
@@ -97,8 +100,13 @@ public class LevelManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
 
         if (!string.IsNullOrEmpty(nextLevel)) {
-            Invoke("LoadNextLevel", 2);
+            Invoke("LoadNextLevel", 2.5f);
         }
+    }
+
+    // load the gnome.ttv scene 
+    private void LoadGnomeTTVScene() {
+        SceneManager.LoadScene("twitch-scene");
     }
 
     private void LoadNextLevel()

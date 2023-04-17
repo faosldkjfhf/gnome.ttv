@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: f1e4c64cfd7272e44b7214dda59c9098, type: 2}
+--- !u!114 &77797879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6882014984518517784, guid: 20d075809c2402149a80d7852d796c12, type: 3}
+  m_PrefabInstance: {fileID: 1920728340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &86295627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2514,6 +2525,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1777891263, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 77797879}
     - target: {fileID: 1157197126230524233, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
       propertyPath: weapons.Array.size
       value: 3
@@ -2931,6 +2946,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1734659984}
+    - target: {fileID: 6229492833973060726, guid: 694c414dee71195438f232cf714e38f5, type: 3}
+      propertyPath: levelProperties
+      value: 
+      objectReference: {fileID: 11400000, guid: 6200f7dcc98c5454d8b8e27864808950, type: 2}
     - target: {fileID: 6229492833973060727, guid: 694c414dee71195438f232cf714e38f5, type: 3}
       propertyPath: m_RootOrder
       value: 21

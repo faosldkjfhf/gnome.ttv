@@ -11,7 +11,7 @@ public class CheckCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Solid"))
         {
-            Debug.Log("collided");
+            // Debug.Log("collided");
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }

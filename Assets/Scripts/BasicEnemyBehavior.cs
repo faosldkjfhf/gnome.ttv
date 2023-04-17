@@ -56,11 +56,10 @@ public class BasicEnemyBehavior : MonoBehaviour
         UpdateHealthBarUI();
         if (distance <= gnomeProperties.maxDistance && distance >= gnomeProperties.minDistance)
         {
-            Debug.Log(agent.speed);
             agent.SetDestination(target.position);
             gnomeAnimator.SetBool("isWalking", true);
             agent.speed = gnomeProperties.speed;
-            Debug.Log(agent.speed);
+            // Debug.Log(agent.speed);
             // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         }
         else 
@@ -124,10 +123,10 @@ public class BasicEnemyBehavior : MonoBehaviour
     {
         if (healthBar != null) {
             healthBar.value = (int)(((double)health / (double)gnomeProperties.maxHealth) * healthBar.maxValue);
-            Debug.Log("health: " + health);
-            Debug.Log("max health: " + gnomeProperties.maxHealth);
-            Debug.Log("max value: " + healthBar.maxValue);
-            Debug.Log(healthBar.value);
+            // Debug.Log("health: " + health);
+            // Debug.Log("max health: " + gnomeProperties.maxHealth);
+            // Debug.Log("max value: " + healthBar.maxValue);
+            // Debug.Log(healthBar.value);
         }
     }
 }

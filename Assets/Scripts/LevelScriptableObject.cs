@@ -29,13 +29,21 @@ public class LevelScriptableObject : ScriptableObject {
 
     public void AdvanceLevel() {
         currentLevel += 1;
+        currentScene = LEVEL_INFO.ElementAt(currentLevel).Key;
         currentLevelGoal = LEVEL_INFO.ElementAt(currentLevel).Value;
     }
 
     public void UpdateProperties()
-    {
+    {  
         currentScene = SceneManager.GetActiveScene().name;
+        currentLevel = LEVEL_INFO.Keys.ToList().IndexOf(currentScene);
         currentLevelGoal = LEVEL_INFO[currentScene];
+    }
+
+    public void PrintLevelInfo() {
+        Debug.Log("level index: " + currentLevel.ToString());
+        Debug.Log("current scene: "  + currentScene);
+        Debug.Log("current level goal: "  + currentLevelGoal.ToString());
     }
 }
 
