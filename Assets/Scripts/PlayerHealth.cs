@@ -25,6 +25,15 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    public void TakeHealth(int health)
+    {
+        if (currentHealth < startingHealth)
+        {
+            currentHealth = Mathf.Clamp(currentHealth + health, 0, startingHealth);
+            healthSlider.value = currentHealth;
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (currentHealth > 0)

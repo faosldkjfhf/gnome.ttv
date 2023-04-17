@@ -922,6 +922,7 @@ MonoBehaviour:
   isDead: 0
   isWalking: 0
   target: {fileID: 0}
+  healthDrop: {fileID: 6738770188628782618, guid: a43b875c69e2f1642aa9a9fe048acc3e, type: 3}
   agent: {fileID: 0}
   healthBar: {fileID: 0}
   gnomeProperties: {fileID: 11400000, guid: c0ff704d67f645c4b8e6957ae5389602, type: 2}

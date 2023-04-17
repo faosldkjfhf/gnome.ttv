@@ -12,6 +12,8 @@ public class BasicEnemyBehavior : MonoBehaviour
     // the player
     public Transform target;
 
+    public GameObject healthDrop;
+
     public NavMeshAgent agent;
     Animator gnomeAnimator;
 
@@ -117,6 +119,7 @@ public class BasicEnemyBehavior : MonoBehaviour
     private void OnDestroy()
     {
         GetComponent<CapsuleCollider>().enabled = false;
+        Instantiate(healthDrop, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), transform.rotation);
     }
 
     private void UpdateHealthBarUI()
