@@ -23,11 +23,12 @@ public class LevelManager : MonoBehaviour
 
     public string nextLevel;
 
-    // how many enemies have spawned by the spawners 
-    int enemyHasSpawned = 0; 
+    // how many enemies have spawned by the spawners
+    int enemyHasSpawned = 0;
 
     int enemiesKilled = 0;
 
+    GameObject[] portals;
 
     // Start is called before the first frame update
     void Start()
@@ -39,38 +40,57 @@ public class LevelManager : MonoBehaviour
         score = 0;
 
         SetScoreText();
+
+        portals = GameObject.FindGameObjectsWithTag("portal");
     }
 
     // Update is called once per frame
     void Update()
     {
         // Debug.Log("enemies to beat: " + enemiesToSpawn);
-        if (!isGameOver) {
+        if (!isGameOver)
+        {
             SetScoreText();
-           if (enemiesKilled >= enemiesToSpawn) {
+            if (enemiesKilled >= enemiesToSpawn)
+            {
+                // deactivate portals
+                for (int i = 0; i < portals.Length; i++)
+                {
+                    portals[i].SetActive(false);
+                }
+                // game win condition met
                 isGameOver = true;
-           }
+
+                // tell player to talk to granny to move on
+                gameText.text = "All Gnomes Eliminated! \nGo talk to Granny";
+                uiPanel.GetComponent<Image>().color = new Color(0, 0, 0, 0.5f);
+                uiPanel.gameObject.SetActive(true);
+                gameText.gameObject.SetActive(true);
+            }
         }
-        
     }
 
-    // tracks how many enemies have spawned 
-    public void TrackSpawn() {
+    // tracks how many enemies have spawned
+    public void TrackSpawn()
+    {
         enemyHasSpawned += 1;
     }
 
-    // tracks how many enemies have been killed 
-    public void TrackKill() {
+    // tracks how many enemies have been killed
+    public void TrackKill()
+    {
         enemiesKilled += 1;
         score = enemiesKilled;
     }
 
-    // spawns enemies if more should be spawned 
-    public bool ShouldSpawnMore() {
+    // spawns enemies if more should be spawned
+    public bool ShouldSpawnMore()
+    {
         return enemyHasSpawned < enemiesToSpawn;
     }
 
-    void SetScoreText() {
+    void SetScoreText()
+    {
         scoreText.text = "Score: " + score.ToString();
     }
 
@@ -87,24 +107,26 @@ public class LevelManager : MonoBehaviour
         Invoke("LoadCurrentLevel", 2);
     }
 
-    public void LevelBeat() {
+    public void LevelBeat()
+    {
         isGameOver = true;
-        gameText.text = "YOU WIN!";
+        gameText.text = "LEVEL CLEARED!";
         levelProperties.AdvanceLevel();
-        uiPanel.GetComponent<Image>().color =  new Color(1, 1, 1, 0.5f);
+        uiPanel.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
         uiPanel.gameObject.SetActive(true);
         gameText.gameObject.SetActive(true);
-        
 
         AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
 
-        if (!string.IsNullOrEmpty(nextLevel)) {
+        if (!string.IsNullOrEmpty(nextLevel))
+        {
             Invoke("LoadNextLevel", 2.5f);
         }
     }
 
-    // load the gnome.ttv scene 
-    private void LoadGnomeTTVScene() {
+    // load the gnome.ttv scene
+    private void LoadGnomeTTVScene()
+    {
         SceneManager.LoadScene("twitch-scene");
     }
 

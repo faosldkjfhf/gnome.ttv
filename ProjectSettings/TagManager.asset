@@ -16,6 +16,7 @@ TagManager:
   - BalloonProjectile
   - Solid
   - Explosion
+  - portal
   layers:
   - Default
   - TransparentFX
