@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public static bool isGamePaused = false;
+    public LevelScriptableObject levelProperties;
+    public GameObject pauseMenu;
 
     // Update is called once per frame
     void Update()
@@ -27,12 +29,33 @@ public class Pause : MonoBehaviour
     {
         isGamePaused = true;
         Time.timeScale = 0f;
+
+        pauseMenu.SetActive(true);
+
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()
     {
         isGamePaused = false;
         Time.timeScale = 1f; 
+
+        pauseMenu.SetActive(false);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void SaveGameAndExit() {
+        levelProperties.SaveLevelInformation();
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
