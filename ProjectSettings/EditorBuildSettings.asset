@@ -21,15 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/neighbor-house.unity
     guid: 786418080d0401648a014ab3296e0739
   - enabled: 1
-    path: Assets/Scenes/garden.unity
-    guid: a323898b2b8a57d42bedfeb0d817ee73
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/GARDENNNNN.unity
+    guid: ccce9ba0503daff44a5aa1e0da12fc94
   - enabled: 1
     path: Assets/Scenes/game end scene.unity
     guid: a9b278f9737f0a0439558505763a5c0a
-  - enabled: 0
-    path: Assets/Scenes/twitch-scene.unity
-    guid: 17fbb35bba6a08e48b51118562fa4863
   m_configObjects: {}

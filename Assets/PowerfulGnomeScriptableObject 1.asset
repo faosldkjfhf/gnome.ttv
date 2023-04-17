@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PowerfulGnomeScriptableObject 1
   m_EditorClassIdentifier: 
   speed: 15
-  maxDistance: 60
+  maxDistance: 100
   minDistance: 0.75
   damageAmount: 20
   maxHealth: 50

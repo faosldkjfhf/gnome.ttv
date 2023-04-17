@@ -12,7 +12,7 @@ public class LevelScriptableObject : ScriptableObject {
         {"game-intro-scene", 0},
         {"main-house", 10}, 
         {"neighbor-house", 50}, 
-        {"garden", 150}, 
+        {"GARDENNNNN", 150}, 
     };
 
     public int currentLevel = 0;
