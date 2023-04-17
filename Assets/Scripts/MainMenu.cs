@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isGamePaused = false;
+    public LevelScriptableObject levelProperties;
 
     void Update()
     {
@@ -26,6 +27,11 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadSavedLevel() {
+        levelProperties.LoadLevelInformation();
+        SceneManager.LoadScene(LevelScriptableObject.currentScene);
     }
 
     public void ExitGame()
