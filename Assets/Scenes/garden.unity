@@ -2884,6 +2884,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8901188054108978851, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8901188054108978851, guid: 7895a8a7056354694b4ef76b4c941a2e, type: 3}
       propertyPath: m_TagString
       value: Throwable
       objectReference: {fileID: 0}
