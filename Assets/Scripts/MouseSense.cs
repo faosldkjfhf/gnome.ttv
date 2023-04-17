@@ -18,8 +18,7 @@ public class MouseSense : MonoBehaviour
     void Update()
     {
         //The lower the value of the slider, the lower the mouse sensitivity in game
-        MouseLook.mouseSensitivity = Input.GetAxis("Mouse X") * sensitivitySlider.value;
-        MouseLook.mouseSensitivity = Input.GetAxis("Mouse Y") * sensitivitySlider.value;
+        MouseLook.mouseSensitivity = sensitivitySlider.value;
         Debug.Log("Mouse Sense" + MouseLook.mouseSensitivity);
     }
 }
