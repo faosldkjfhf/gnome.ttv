@@ -28,7 +28,7 @@ public class TwitchScreenManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E)) {
             Debug.Log("going to " + LevelScriptableObject.currentScene);
-            SceneManager.LoadScene(LevelScriptableObject.currentScene);
+            SceneManager.LoadScene(2);//LevelScriptableObject.currentScene);
         }
     }
 
