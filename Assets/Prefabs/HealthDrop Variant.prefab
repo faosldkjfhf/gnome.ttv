@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1705129010167144, guid: bfa7e8189ab181843b9ac106678a628a, type: 3}
       propertyPath: m_Name
-      value: HealthDrop
+      value: HealthDrop Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4528477828364640, guid: bfa7e8189ab181843b9ac106678a628a, type: 3}
       propertyPath: m_RootOrder
@@ -102,3 +102,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1485dce280237469896b124623d360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healValue: 50
+  rotationAmount: 30
