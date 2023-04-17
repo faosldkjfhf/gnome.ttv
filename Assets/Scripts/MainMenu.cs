@@ -31,6 +31,10 @@ public class MainMenu : MonoBehaviour
 
     public void LoadSavedLevel() {
         levelProperties.LoadLevelInformation();
+        if (LevelScriptableObject.currentScene.CompareTo("") == 0)
+        {
+            return;
+        }
         SceneManager.LoadScene(LevelScriptableObject.currentScene);
     }
 

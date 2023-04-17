@@ -23,8 +23,8 @@ public class LevelScriptableObject : ScriptableObject {
 
     private void OnEnable()
     {
-        currentScene = SceneManager.GetActiveScene().name;
-        currentLevelGoal = LEVEL_INFO[currentScene];
+        //currentScene = SceneManager.GetActiveScene().name;
+        //currentLevelGoal = LEVEL_INFO[currentScene];
     }
 
     // saves the level information
