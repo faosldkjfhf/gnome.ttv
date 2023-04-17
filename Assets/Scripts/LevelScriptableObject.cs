@@ -9,6 +9,7 @@ using System.Linq;
 public class LevelScriptableObject : ScriptableObject {
     // a mapping of the information in each level's LevelManager
     public static Dictionary<string, int> LEVEL_INFO = new Dictionary<string, int>() {
+        {"game-intro-scene", 0},
         {"main-house", 10}, 
         {"neighbor-house", 50}, 
         {"garden", 150}, 
@@ -53,7 +54,7 @@ public class LevelScriptableObject : ScriptableObject {
     public void UpdateProperties()
     {  
         currentScene = SceneManager.GetActiveScene().name;
-        currentLevel = LEVEL_INFO.Keys.ToList().IndexOf(currentScene);
+        currentLevel = LEVEL_INFO.Keys.ToList().IndexOf(currentScene); 
         currentLevelGoal = LEVEL_INFO[currentScene];
         SaveLevelInformation();
     }
