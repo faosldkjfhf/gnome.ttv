@@ -22,7 +22,10 @@ EditorBuildSettings:
     guid: 786418080d0401648a014ab3296e0739
   - enabled: 1
     path: Assets/Scenes/garden.unity
-    guid: 98bfcf04b5099414b84a1f29c6e08dfb
+    guid: a323898b2b8a57d42bedfeb0d817ee73
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/game end scene.unity
     guid: a9b278f9737f0a0439558505763a5c0a
